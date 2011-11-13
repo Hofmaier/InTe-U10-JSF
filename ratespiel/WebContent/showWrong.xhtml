@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+		>
+	
+<head>
+<title>Show Wrong</title>
+</head>
+<body>
+	<ui:composition template="mainpage.xhtml">
+		<ui:define name="mainscreen">
+			<h:form>
+			<br />
+			<h:outputText value="#{msgs.lastTipp} #{participation.lastTipp} #{participation.hint}"/>
+			<br />
+			<br />
+			<h:outputText value="#{msgs.tipp}:" />
+			<br />
+			<br />
+			<h:inputText id="tipp" value="#{participation.tipp}">
+			<f:validateLongRange minimum="1" maximum="10"/>
+			</h:inputText>
+		<p:commandButton value="senden" action="#{participation.check}"/>
+		<br />
+		</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Guessing Rocks</title>
+</h:head>
+<h:body>
+
+	<f:view>
+<h:form>
+		<h:selectOneMenu value="#{locale.locale}" immediate="true" onchange="this.form.submit()" valueChangeListener="#{locale.localeChangeListener}">
+			<f:selectItem itemValue="de" itemLabel="Deutsch"/>
+			<f:selectItem itemValue="en" itemLabel="English"/>
+		</h:selectOneMenu>
+			<h2><h:outputLabel value="#{msgs.guessinggame} #{participation.gameNr}">
+				</h:outputLabel>
+			</h2>
+
+			<h:outputLabel value="GameOver"></h:outputLabel>
+			<br /><h:outputLabel value="#{participation.result}"></h:outputLabel>
+			<br /><br />
+
+			<h:commandLink action="#{participation.newGame}">
+				<h:outputText value="#{msgs.newGame}"></h:outputText>
+			</h:commandLink>
+		</h:form>
+	</f:view>
+</h:body>
+</html>

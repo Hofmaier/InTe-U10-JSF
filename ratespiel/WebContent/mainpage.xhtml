@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Guessing Rocks</title>
+	<style type="text/css" media="screen"><!--
+#outer      
+   {
+   text-align: center;
+   position: absolute;
+   top: 50%;
+   left: 0px;
+   width: 100%;
+   height: 1px;
+   overflow: visible;
+   visibility: visible;
+   display: block
+   }
+
+#inner
+   {
+   margin-left: -400px;
+   position: absolute;
+   top: -230px;
+   left: 50%;
+   width: 250px;
+   height: 250px;
+   } 
+--></style>
+ 
+</h:head>
+<h:body>
+<div id="outer">
+<div id="inner">
+<f:view >
+
+<p:layout style="width:900px;height:600px">
+
+<p:layoutUnit position="top" header="Game" height="120">
+	<h:outputText value="#{msgs.guessinggame}  #{participation.gameNr}" style="font-size:2em; margin-left: 20px; top: 40px"/>
+	<p:spacer width="10" height="10" /> 
+	<h:outputText value="#{msgs.playerNrMsg} #{participation.number}"/>
+</p:layoutUnit>
+
+<p:layoutUnit position="right" header="#{msgs.settings}" width="230" style="margin-left: 20px">
+	<h:form>
+	<br/>
+	<h:outputText value="#{msgs.language}"/>
+	<h:selectOneMenu value="#{locale.locale}" immediate="true" onchange="this.form.submit()" valueChangeListener="#{locale.localeChangeListener}">
+		<f:selectItem itemValue="de" itemLabel="Deutsch"/>
+		<f:selectItem itemValue="en" itemLabel="English"/>
+	</h:selectOneMenu>		
+	</h:form>
+</p:layoutUnit>
+
+<p:layoutUnit position="left" header="#{msgs.statistics}" width="250">
+	<h:form>
+		
+		<div id="tableDiv">
+		<p:dataTable id="table" value="#{participation.tippHistory}" var="tipp">
+			<p:column>
+				<f:facet name="header"> <h:outputText value="#{msgs.playerNr}"/></f:facet>
+				<h:outputText value="#{tipp.player}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header"> <h:outputText value="#{msgs.tippNr}"/></f:facet>
+					<h:outputText value="#{tipp.nr} "/>
+			</p:column>
+			<p:column>
+				<f:facet name="header"> <h:outputText value="#{msgs.time}"/></f:facet>
+				<h:outputText value="#{tipp.time}" />
+			</p:column>
+		</p:dataTable>
+		<!--  <p:poll update="table" interval="1"/>-->
+		</div>
+	</h:form>
+	
+</p:layoutUnit>
+
+<p:layoutUnit position="center" header="Tipp" style="margin-left: 20px">
+	<ui:insert name="mainscreen">
+		<h:form>
+			<br />
+			<h:outputLabel  value="#{msgs.guessNr}"></h:outputLabel>
+			<br />
+			<br />
+		<h:outputLabel value="#{msgs.tipp}"></h:outputLabel><br />
+		<p:inputText id="tipp" value="#{participation.tipp}">
+			<f:validateLongRange minimum="1" maximum="10"/>
+		</p:inputText>
+		<h:commandButton value="senden" action="#{participation.check}"/><br /><br />
+		<br />
+		<br />
+	
+			<h:message showSummary="true" showDetail="false" for="tipp" />
+	</h:form>
+ 	</ui:insert>
+</p:layoutUnit>
+</p:layout>
+	
+</f:view>
+</div>
+</div>
+</h:body>
+</html>

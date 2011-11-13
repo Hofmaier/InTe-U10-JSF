@@ -13,10 +13,19 @@
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
-  </servlet>
+   </servlet>
+   
+   <servlet>
+	<servlet-name>Comet Servlet</servlet-name>
+	<servlet-class>org.primefaces.comet.PrimeFacesCometServlet</servlet-class>
+  	</servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name> Comet Servlet</servlet-name>
+  	<url-pattern>/primefaces_comet/*</url-pattern>
   </servlet-mapping>
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>

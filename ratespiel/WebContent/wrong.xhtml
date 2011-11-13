@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Guessing Rocks</title>
+</h:head>
+<h:body>
+
+	<f:view>
+<h:form>
+		<h:selectOneMenu value="#{locale.locale}" immediate="true" onchange="this.form.submit()" valueChangeListener="#{locale.localeChangeListener}">
+			<f:selectItem itemValue="de" itemLabel="Deutsch"/>
+			<f:selectItem itemValue="en" itemLabel="English"/>
+		</h:selectOneMenu>
+			<h2><h:outputLabel value="#{msgs.guessinggame} #{participation.gameNr}">
+				</h:outputLabel>
+			</h2>
+		<h:outputLabel value="#{msgs.playerNrMsg}"/><h:outputLabel value="#{participation.number}"></h:outputLabel>
+		<br />
+		<h:outputLabel  value="#{msgs.guessNr}"></h:outputLabel>
+		<br />
+		<h:outputLabel value="#{msgs.lastTipp} #{participation.lastTipp} #{participation.hint}"></h:outputLabel><br /><br />
+		<h:outputLabel value="#{msgs.tipp}:"></h:outputLabel><br /><br />
+		<h:inputText id="tipp" value="#{participation.tipp}">
+			<f:validateLongRange minimum="1" maximum="10"/>
+		</h:inputText>
+		<h:commandButton value="senden" action="#{participation.check}"/><br />
+			<br />
+			<br />
+		<h1><h:outputLabel value="Statistik"></h:outputLabel></h1><br />
+		<h:outputLabel value="Anzahl abgegeben Tipps in Spiel #{participation.gameNr}: #{participation.tippCount}"/>
+		<h:dataTable value="#{participation.tippHistory}" var="tipp">
+			<h:column>
+				<f:facet name="header"> <h:outputText value="#{msgs.playerNr}"/></f:facet>
+				<h:outputText value="#{tipp.player}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"> <h:outputText value="#{msgs.tipp}"/></f:facet>
+					<h:outputText value="#{tipp.nr} "/>
+			</h:column>
+			<h:column>
+				<f:facet name="header"> <h:outputText value="#{msgs.time}"/></f:facet>
+				<h:outputText value="#{tipp.time}" />
+			</h:column>
+		</h:dataTable><br />
+		<br/>
+		<h:outputText value="Anzahl gestarteter Spiele: #{participation.nrOfGames}"/>
+		</h:form>
+		
+		<h:message showSummary="true" showDetail="false" for="tipp" />
+	</f:view>
+</h:body>
+</html>
