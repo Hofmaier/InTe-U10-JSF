@@ -13,16 +13,16 @@
 		<ui:define name="mainscreen">
 			<h:form>
 			<br />
-			<h:outputText value="#{msgs.lastTipp} #{participation.lastTipp} #{participation.hint}"/>
+			<h:outputText value="#{msgs.lastTipp} #{participation.tipp} #{participation.hint}"/>
 			<br />
 			<br />
-			<h:outputText value="#{msgs.tipp}:" />
+			<h:outputText value="#{msgs.tipp}" />
 			<br />
 			<br />
 			<h:inputText id="tipp" value="#{participation.tipp}">
 			<f:validateLongRange minimum="1" maximum="10"/>
 			</h:inputText>
-		<p:commandButton value="senden" action="#{participation.check}"/>
+		<h:commandButton value="senden" action="#{participation.check}"/>
 		<br />
 		</h:form>
 		</ui:define>

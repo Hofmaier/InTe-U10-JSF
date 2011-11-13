@@ -28,5 +28,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-2.2.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/atmosphere-runtime-0.5.8.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/atmosphere-compat-tomcat-0.5.8.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mint-choc-1.0.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

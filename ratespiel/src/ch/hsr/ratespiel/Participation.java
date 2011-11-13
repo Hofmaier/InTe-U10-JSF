@@ -46,7 +46,8 @@ public class Participation {
 	}
 	
 	public Integer getTipp(){
-		System.out.println("[Participation] getTipp");
+		Integer tipp = player.getTipp();
+		System.out.println("[Participation] getTipp " + tipp);
 		return player.getTipp();
 	}
 	
