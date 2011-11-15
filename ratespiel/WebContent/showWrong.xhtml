@@ -20,10 +20,11 @@
 			<br />
 			<br />
 			<h:inputText id="tipp" value="#{participation.tipp}">
-			<f:validateLongRange minimum="1" maximum="10"/>
+				<f:validateLongRange minimum="1" maximum="10"/>
+				<f:ajax render="errorMsg" execute="@this" event="keyup" />
 			</h:inputText>
 		<h:commandButton value="senden" action="#{participation.check}"/>
-		<p:message showSummary="true" showDetail="false" for="tipp" />
+		<p:message id="errorMsg" showSummary="true" showDetail="false" for="tipp" />
 		<br />
 		</h:form>
 		</ui:define>

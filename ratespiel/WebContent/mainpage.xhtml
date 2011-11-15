@@ -100,9 +100,10 @@
 		<h:outputLabel value="#{msgs.tipp}"></h:outputLabel><br />
 		<p:inputText id="tipp" value="#{participation.tipp}">
 			<f:validateLongRange minimum="1" maximum="10"/>
+			<f:ajax render="errorMsg" execute="@this" event="keyup" />
 		</p:inputText>
 		<h:commandButton value="senden" action="#{participation.check}"/><br /><br />
-		<p:message showSummary="true" showDetail="false" for="tipp" />
+		<p:message id="errorMsg" showSummary="true" showDetail="false" for="tipp" />
 	</h:form>
  	</ui:insert>
 </p:layoutUnit>
