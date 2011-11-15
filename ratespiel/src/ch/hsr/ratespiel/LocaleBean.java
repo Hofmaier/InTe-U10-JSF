@@ -18,12 +18,14 @@ public class LocaleBean {
 	}
 
 	public String getLocale() {
-		System.out.println("[LocaleBean] getLocale: " + locale.getLanguage());
-		return FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage();
+		//System.out.println("[LocaleBean] getLocale: " + locale.getLanguage());
+		return locale.getLanguage();
+		//return FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage();
 	}
 
 	public void setLocale(String locale) {
 		System.out.println("[LocaleBean] setLocale: " + locale);
+		this.locale = new Locale(locale);
 		FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale(locale));
 	}
 	
