@@ -47,13 +47,13 @@ public class Participation {
 	
 	public Integer getTipp(){
 		Integer tipp = player.getTipp();
-		System.out.println("[Participation] getTipp " + tipp);
+		//System.out.println("[Participation] getTipp " + tipp);
 		return player.getTipp();
 	}
 	
 	public void setTipp(Integer i){
 		player.setTipp(i);
-		System.out.println("[Participation] setTipp " + player.getTipp());
+		//System.out.println("[Participation] setTipp " + player.getTipp());
 	}
 	
 	public Participation(){
