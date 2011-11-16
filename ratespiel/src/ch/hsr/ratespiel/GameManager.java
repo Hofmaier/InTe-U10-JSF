@@ -7,11 +7,9 @@ import javax.faces.bean.ManagedBean;
 @ApplicationScoped
 public class GameManager {
 	
-	private final String PUSH_GROUP = "gameManager";
-	
 	private Game openGame;
 	private Integer number;
-	public static final Integer maxNrOfPlayersPerGame = 2;
+	public static final Integer maxNrOfPlayersPerGame = 3;
 
 	public Game getOpenGame() {
 		if (openGame == null) {

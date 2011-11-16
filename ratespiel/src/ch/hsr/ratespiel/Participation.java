@@ -19,8 +19,6 @@ public class Participation {
 	@ManagedProperty(value = "#{gameManager.player}")
 	private Player player;
 	
-	private Integer tipp;
-	
 	public Integer getNumber(){
 		System.out.println("[Participation] getNumber(): " + player.getNumber());
 		return player.getNumber();
@@ -77,7 +75,7 @@ public class Participation {
 		System.out.println("[Participation] check");
 		String nextPage = game.check(player);
 		System.out.println("[Participation] check. Next Page: " + nextPage);
-		
+		player.incrementNrOfTipps();
 		return nextPage;
 	}
 	
@@ -116,5 +114,9 @@ public class Participation {
 	
 	public Integer getNrOfGames(){
 		return Game.nrOfGames;
+	}
+	
+	public Integer getNrOfPlayerTipps(){
+		return player.getNumberOfTipps();
 	}
 }

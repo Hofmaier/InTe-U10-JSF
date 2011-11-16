@@ -4,6 +4,7 @@ public class Player {
 	
 	private Integer tipp;
 	private Integer number;
+	private Integer numberOfTipps = 0;
 	
 	public Integer getTipp(){
 		//System.out.println("[Player] getTipp: " + tipp);
@@ -31,5 +32,12 @@ public class Player {
 	public boolean isWaiting() {
 		return tipp!=null;
 	}
-
+	
+	public Integer getNumberOfTipps(){
+		return numberOfTipps;
+	}
+	
+	public void incrementNrOfTipps(){
+		numberOfTipps++;
+	}
 }

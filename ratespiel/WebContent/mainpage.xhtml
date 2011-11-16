@@ -65,6 +65,8 @@
 <p:layoutUnit position="left" header="#{msgs.statistics}" width="335" style="margin-left: 20px">
 	<h:form>
 	<br/>
+		<h:outputText value="#{msgs.nrOfPlayerTips} #{participation.nrOfPlayerTipps}" />
+		<br />
 		<h:outputText value="#{msgs.nrOfsumbitedTips} #{participation.tippCount}"/>
 		<br/>
 		<h:outputText value="#{msgs.nrOfstartedGames} #{participation.nrOfGames}"/>
