@@ -63,7 +63,7 @@
 </p:layoutUnit>
 
 <p:layoutUnit position="left" header="#{msgs.statistics}" width="335" style="margin-left: 20px">
-	<h:form>
+	<h:form id="form">
 	<br/>
 		<h:outputText value="#{msgs.nrOfPlayerTips} #{participation.nrOfPlayerTipps}" />
 		<br />
@@ -87,7 +87,9 @@
 				<h:outputText value="#{tipp.time}" />
 			</p:column>
 		</p:dataTable>
-		<p:poll update="table" interval="1"/>
+		<br />
+		<br />
+		<p:poll update="form" interval="1"/>
 		</div>
 	</h:form>
 </p:layoutUnit>
